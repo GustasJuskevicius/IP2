@@ -1,0 +1,21 @@
+module: AddressDoorMultimap.o
+
+AddressDoorMultimap.o: AddressDoorMultimap.cpp AddressDoorMultimap.h
+	g++ -std=c++17 -Wall -Wextra -pedantic -c AddressDoorMultimap.cpp -o AddressDoorMultimap.o
+
+demo: AddressDoorMultimap.o demo.cpp
+	g++ -std=c++17 -Wall -Wextra -pedantic demo.cpp AddressDoorMultimap.o -o demo.exe
+
+run-demo: demo
+	./demo.exe
+
+test: AddressDoorMultimap.o test.cpp
+	g++ -std=c++17 -Wall -Wextra -pedantic test.cpp AddressDoorMultimap.o -o test.exe
+
+run-test: test
+	./test.exe
+
+clean:
+	-powershell -Command "Remove-Item -Force -ErrorAction SilentlyContinue 'AddressDoorMultimap.o','demo.exe','test.exe','log.txt'; exit 0"
+
+rebuild: clean module demo test
