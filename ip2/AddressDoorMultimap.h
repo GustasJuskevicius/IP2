@@ -7,7 +7,7 @@
 #include <string>
 #include <utility>
 
-namespace customadt {
+namespace Customadt {
 
 class DuplicateEntryException : public std::logic_error {
 public:
@@ -15,6 +15,9 @@ public:
 };
 
 class AddressDoorMultimap {
+private:
+    class Impl;
+    std::unique_ptr<Impl> impl_;
 public:
     using Entry = std::pair<std::string, int>;
     using Edit = std::pair<Entry, Entry>;
@@ -42,10 +45,6 @@ public:
     bool empty() const noexcept;
     Entry at(std::size_t index) const;
     std::string toString() const;
-
-private:
-    class Impl;
-    std::unique_ptr<Impl> impl_;
 };
 
 }

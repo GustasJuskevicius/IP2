@@ -4,8 +4,8 @@
 
 
 int main() {
-    using customadt::AddressDoorMultimap;
-    using customadt::DuplicateEntryException;
+    using Customadt::AddressDoorMultimap;
+    using Customadt::DuplicateEntryException;
 
     AddressDoorMultimap book;
     std::cout << "Tuscia: " << (book.empty() ? "true" : "false") << '\n';
@@ -21,6 +21,10 @@ int main() {
 
     AddressDoorMultimap copy(book);
     std::cout << "copy == book: " << (copy == book) << '\n';
+
+    AddressDoorMultimap assigned;
+    assigned = copy;
+    std::cout << "assigned == copy: " << (assigned == copy) << '\n';
 
     copy %= AddressDoorMultimap::Edit(
         AddressDoorMultimap::Entry("Sesta g. 7", 2),

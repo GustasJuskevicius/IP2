@@ -1,0 +1,48 @@
+Beginning AddressDoorMultimap test run
+All tests directed to stdout and log.txt
+Test 1: Constructor test
+Detail: A new object should start empty and its size should be 0.
+Result: PASSED
+Test 2: Single insertion
+Detail: Operator+= should insert one valid address-door pair.
+Result: PASSED
+Test 3: Count by address
+Detail: Operator[] should return the number of doors stored for an address.
+Result: PASSED
+Test 4: Duplicate exception (custom)
+Detail: An identical address-door pair should throw DuplicateEntryException.
+Result: PASSED
+Test 5: Duplicate key allowed
+Detail: The same address may own multiple different door numbers.
+Result: PASSED
+Test 6: Indexed read
+Detail: Index at(1) should return the second stored pair in sorted order (Alphabetically).
+Result: PASSED
+Test 7: Deletion
+Detail: Operator-= should remove an existing address-door pair.
+Result: PASSED
+Test 8: Missing delete throws
+Detail: Removing a pair that does not exist should throw std::out_of_range.
+Result: PASSED
+Test 9: Edit operation
+Detail: Operator%= should replace the old pair with the new one.
+Result: PASSED
+Test 10: Missing edit throws
+Detail: Editing a pair that does not exist should throw std::out_of_range.
+Result: PASSED
+Test 11: Invalid empty address
+Detail: An empty address should throw std::invalid_argument.
+Result: PASSED
+Test 12: Invalid door number
+Detail: A non-positive door number should throw std::invalid_argument.
+Result: PASSED
+Test 13: Deep copy
+Detail: Copy construction should duplicate data instead of sharing ownership.
+Result: PASSED
+Test 14: Comparison operators
+Detail: All six comparison operators should agree with each other.
+Result: PASSED
+Test 15: Clear and summary
+Detail: operator! should clear the object and toString() should reflect it.
+Result: PASSED
+Summary: 15 / 15 tests passed

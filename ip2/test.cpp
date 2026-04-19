@@ -35,8 +35,8 @@ bool expectThrows(const std::function<void()>& action) {
 }
 
 int main() {
-    using customadt::AddressDoorMultimap;
-    using customadt::DuplicateEntryException;
+    using Customadt::AddressDoorMultimap;
+    using Customadt::DuplicateEntryException;
 
     std::ofstream log("log.txt");
     if (!log) {
@@ -210,7 +210,9 @@ int main() {
         "operator! should clear the object and toString() should reflect it.");
     }
 
-    std::cout << "Summary: " << passedCount << " / 15 tests passed";
+    std::ostringstream summary;
+    summary << "Summary: " << passedCount << " / 15 tests passed";
+    writeLine(std::cout, log, summary.str());
 
     return passedCount == 15 ? 0 : 1;
 }

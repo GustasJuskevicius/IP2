@@ -16,6 +16,6 @@ run-test: test
 	./test.exe
 
 clean:
-	-powershell -Command "Remove-Item -Force -ErrorAction SilentlyContinue 'AddressDoorMultimap.o','demo.exe','test.exe','log.txt'; exit 0"
+	-powershell -Command "Remove-Item -Force -ErrorAction SilentlyContinue 'AddressDoorMultimap.o','demo.exe','test.exe'; exit 0"
 
 rebuild: clean module demo test
